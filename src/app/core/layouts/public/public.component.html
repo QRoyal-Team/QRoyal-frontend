@@ -1,0 +1,101 @@
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                </ul>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Giỏ hàng</a></li>
+                        <li><a class="dropdown-item" href="#">Hàng đã xem</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i> Tài khoản
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink='/login'>Đăng nhập</a></li>
+                        <li><a class="dropdown-item" routerLink="/register">Đăng kí</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Quên tài khoản</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<section class="content">
+    <router-outlet></router-outlet>
+</section>
+<footer>
+    <div id="lienhe">
+        <div class="headline text-center">
+            <h3>Liên Hệ Với Chúng Tôi</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <p>Liên hệ với chúng tôi qua các phương thức.</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Việt Nam</p>
+                    <p><i class="fa-solid fa-phone"></i> +12 345678910</p>
+                    <p><i class="fa-solid fa-envelope"></i> tencongty@gmail.com</p>
+                    <p><i class="fa-brands fa-facebook"></i> https://www.facebook.com/tencongty</p>
+                </div>
+                <div class="col-sm-7">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <input class="form-control" id="name" name="name" placeholder="Họ Tên" type="text" required>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <input class="form-control" id="email" name="email" placeholder="Email" type="email"
+                                required>
+                        </div>
+                    </div>
+                    <textarea class="form-control" id="comments" name="comments" placeholder="Viết những gì bạn muốn"
+                        rows="5"></textarea><br>
+                    <div class="row">
+                        <div class="col-sm-12 form-group">
+                            <button class="btn btn-default btn-info pull-right" type="submit">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ontep -->
+<div class='lentop'>
+    <div>
+        <img
+            src='https://1.bp.blogspot.com/-k6sikOdzFXQ/VwqCKDosmEI/AAAAAAAAKxE/nLxLhkTIO6o3iE5ZWmtxo2bf4QHdzPQNQ/s1600/top.png' />
+    </div>
+</div>

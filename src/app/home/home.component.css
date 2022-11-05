@@ -1,0 +1,151 @@
+#navbarSupportedContent li:hover a {
+  background: #69bb7e;
+  border-radius: 10%;
+  transition: all 0.3s;
+}
+
+.mycarousel{
+  height: auto;
+  padding: 15px;
+}
+
+#wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 50px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border: 1px solid #bebebe;
+  display: inline-block;
+}
+
+ul.products {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ul.products li {
+  flex-basis: 25%;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.product-item{
+  position: relative;
+}
+
+ul.products li img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul.products li .product-top {
+  position: relative;
+  overflow: hidden;
+}
+
+ul.products li:hover .product-top .product-thumb img {
+  filter: opacity(80%);
+}
+
+ul.products li .product-top .product-thumb img {
+  display: block;
+}
+
+ul.products li .product-top a.buy-now {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  background-color: #69bb7e;
+  padding: 10px 0px;
+  color: black;
+  position: absolute;
+  width: 100%;
+  bottom: -45px;
+  transition: 0.25s ease-in-out;
+  opacity: 0.85;
+}
+
+ul.products li:hover a.buy-now {
+  bottom: 0px;
+}
+
+ul.products li .product-info a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+ul.products li .product-info a.product-name {
+  color: black;
+  padding: 3px 0px;
+}
+
+ul.products li .product-info a.product-cat {
+  color: black;
+  padding: 3px 0px;
+  text-align: center;
+}
+
+.product-price {
+  text-align: center;
+  margin-bottom: 23px;
+}
+
+.services-item {
+  margin: 15px;
+}
+
+ul.services {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ul.services li {
+  flex-basis: 25%;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+ul.services li img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul.services li .services-top .product-thumb img {
+  display: block;
+}
+
+ul.services li .services-info a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.services-cat {
+  text-align: center;
+}
+
+.fa-clock {
+  font-size: 250px;
+}
+
+.fa-earth-americas {
+  font-size: 250px;
+}
+
+.fa-users {
+  font-size: 250px;
+}
+
+
