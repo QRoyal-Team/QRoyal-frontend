@@ -11,6 +11,9 @@ import { PublicComponent } from './core/layouts/public/public.component';
 import { ProductComponent } from './core/components/public/product/product.component';
 import { OtpComponent } from './core/auth/otp/otp.component';
 import { RegisterComponent } from './core/auth/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -24,8 +27,8 @@ import { RegisterComponent } from './core/auth/register/register.component';
     OtpComponent,
     RegisterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
+  providers: [HttpClientModule, HttpClient, JwtHelperService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

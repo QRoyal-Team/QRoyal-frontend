@@ -5,43 +5,68 @@
                 style="transform: perspective(300px) rotateX(0deg) rotateY(0deg); will-change: transform;">
                 <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="IMG">
             </div>
-            <form class="login100-form validate-form">
+            <form id="loginForm" #loginForm="ngForm" class="login100-form validate-form" (ngSubmit)="login()">
                 <h3 class="login100-form-title">
                     Member Login
                 </h3>
+                <div class="form-group text-danger text-center mb-3">
+                    <div *ngIf="invalidLogin" class="invalidLoginMessage" id="invalidLoginMessage">
+                        Username or Password is wrong!
+                    </div>
+                </div>
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <small id="emailHiden" class="form-text text-danger"
+                        *ngIf="!email?.valid && (email?.dirty || email?.touched)">Email is invalid or empty</small>
+                    <input class="input100" type="email" ngModel [(ngModel)]="account.username" name="email"
+                        placeholder="Email" aria-describedby="emailHiden"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #email="ngModel">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </span>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
+                    <small id="passwordHiden" class="form-text text-danger"
+                        *ngIf="!password?.valid && (password?.dirty || password?.touched)">Password has length lower 6
+                        or
+                        empty</small>
+                    <input class="input100" type="password" ngModel [(ngModel)]="account.password" name="password"
+                        placeholder="Password" aria-describedby="passwordHiden" required minlength="3"
+                        #password="ngModel">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        Login
+                    <button [disabled]="!loginForm.valid || loading" type="submit" class="login100-form-btn">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Đăng nhập
                     </button>
                 </div>
-                <div class="text-center p-t-12">
+                <div class="form-check mb-2 mr-sm-2 d-flex justify-content-center align-items-center">
+                    <input class="" type="checkbox" id="inlineFormCheck" [(ngModel)]="rememberMe" name="rememberMe"/>
+                    <label class="txt2 p-1" for="inlineFormCheck">
+                        Remember me
+                    </label>
+                </div>
+                <div class="text-center p-t-12 p-1">
                     <span class="txt1">
-                        Forgot
+                        Quên
                     </span>
                     <a class="txt2" href="#">
                         Username / Password?
                     </a>
                 </div>
-                <div class="text-center p-t-136">
-                    <a class="txt2" href="/register">
-                        Create your Account
+                <div class="text-center p-t-136 p-1">
+                    <a class="txt2" routerLink="/register">
+                        Đăng kí tài khoản
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                     </a>
                 </div>
+                <div class="text-center p-t-136 p-1"><a routerLink="/home" class="txt2"><i aria-hidden="true"
+                            class="fa fa-long-arrow-left m-l-5"></i> Trở về trang chủ
+                    </a></div>
             </form>
         </div>
     </div>

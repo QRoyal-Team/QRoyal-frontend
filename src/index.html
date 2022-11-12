@@ -17,27 +17,21 @@
 
 <body>
   <app-root>
-    <div class="text-center">
-      <button class="btn btn-primary" style="min-width: 30%">
-        <span class="spinner-border spinner-border-sm mr-1"></span>
-        Loading...
-      </button>
+    <div class="text-center d-flex justify-content-center align-items-center"
+      style="font-size: 135px;color: rgba(112, 210, 109, 0.567); width: 100%; min-height: 100vh; border-radius: 2%;">
+      <span class="spinner-border spinner-border-sm mr-1"></span>
+      Loading...
     </div>
   </app-root>
   <!-- Messenger Plugin chat Code -->
-  <div id="fb-root"></div>
-
-  <!-- Your Plugin chat code -->
+  <!-- <div id="fb-root"></div>
   <div id="fb-customer-chat" class="fb-customerchat">
   </div>
-
   <script>
     var chatbox = document.getElementById('fb-customer-chat');
     chatbox.setAttribute("page_id", "101754986091609");
     chatbox.setAttribute("attribution", "biz_inbox");
   </script>
-
-  <!-- Your SDK code -->
   <script>
     window.fbAsyncInit = function () {
       FB.init({
@@ -45,7 +39,6 @@
         version: 'v15.0'
       });
     };
-
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -53,7 +46,7 @@
       js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  </script>
+  </script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
     integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>

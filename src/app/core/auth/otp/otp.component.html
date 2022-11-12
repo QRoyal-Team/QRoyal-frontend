@@ -5,21 +5,26 @@
                 Please enter the one time password <br />
                 to verify your account
             </h6>
-            <div><span>A code has been sent to</span> <small>******@gmail.com</small></div>
-            <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
-                <input class="m-2 text-center form-control rounded" type="text" id="first" maxlength="1" />
-                <input class="m-2 text-center form-control rounded" type="text" id="second" maxlength="1" />
-                <input class="m-2 text-center form-control rounded" type="text" id="third" maxlength="1" />
-                <input class="m-2 text-center form-control rounded" type="text" id="fourth" maxlength="1" />
-                <input class="m-2 text-center form-control rounded" type="text" id="fifth" maxlength="1" />
-                <input class="m-2 text-center form-control rounded" type="text" id="sixth" maxlength="1" />
-            </div>
-            <div class="mt-4"><button class="btn btn-primary px-4 validate" onclick="myFunction()">Confirm</button>
-            </div>
+            <div><span>A code has been sent to </span> <small>{{username}}</small></div>
+            <form #form="ngForm" (ngSubmit)="verify(form.value)">
+                <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+                    <input class="m-2 text-center form-control rounded" type="text" name="first" maxlength="1" #first
+                        ngModel (keydown)="(first.value.length == 1) ? second.focus() : ''" />
+                    <input class="m-2 text-center form-control rounded" type="text" name="second" maxlength="1" #second
+                        ngModel (keydown)="(second.value.length == 1) ? third.focus() : ''" />
+                    <input class="m-2 text-center form-control rounded" type="text" name="third" maxlength="1" #third
+                        ngModel (keydown)="(third.value.length == 1) ? fourth.focus() : ''" />
+                    <input class="m-2 text-center form-control rounded" type="text" name="fourth" maxlength="1" #fourth
+                        ngModel (keydown)="(fourth.value.length == 1) ? first.focus() : ''" />
+                </div>
+                <div class="mt-4"><button type="submit" class="btn btn-primary px-4 validate"><span *ngIf="loading"
+                            class="spinner-border spinner-border-sm mr-1"></span>Confirm</button>
+                </div>
+            </form>
         </div>
         <div class="card-2">
             <div class="content d-flex justify-content-center align-items-center">
-                <span>Didn't get the code</span> <a href="#" class="text-decoration-none ms-3">Resend(1/3)</a>
+                <span>Didn't get the code</span> <a class="text-decoration-none ms-3" (click)="resend()"><span *ngIf="loadingResend" class="spinner-border spinner-border-sm mr-1"></span>Resend</a>
             </div>
         </div>
     </div>
