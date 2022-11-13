@@ -13,7 +13,6 @@ import { OtpComponent } from './core/auth/otp/otp.component';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     RegisterComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
-  providers: [HttpClientModule, HttpClient, JwtHelperService],
+  providers: [HttpClientModule, HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
