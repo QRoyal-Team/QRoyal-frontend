@@ -33,6 +33,7 @@ export class AuthService extends BaseService<Jwt> {
 
   public logout(): void {
     localStorage.removeItem('jwt');
+    sessionStorage.removeItem('jwt');
   }
 
   public saveToken(token: string): void {
