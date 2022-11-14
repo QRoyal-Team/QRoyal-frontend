@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from '../../services/alert.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class OtpComponent implements OnInit {
   loading!: Boolean;
   loadingResend!: Boolean;
   username!: String;
-  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) {
+  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router,private alertService:AlertService) {
     this.username = this.route.snapshot.paramMap.get('username') as string;
   }
 
@@ -27,7 +28,7 @@ export class OtpComponent implements OnInit {
       if (!res.hasErrors()) {
         this.loading = false;
         this.router.navigateByUrl('/login');
-        alert('Verify successfull');
+        this.alertService.success('Verify successfull');
       } else {
         console.log(account);
         this.loading = false;
@@ -43,10 +44,10 @@ export class OtpComponent implements OnInit {
     this.authService.resend(account).subscribe((res) => {
       if (!res.hasErrors()) {
         this.loadingResend = false;
-        alert('Resended');
+        this.alertService.success('Resended');
       } else {
         this.loadingResend = false;
-        alert('Error please try again!');
+        this.alertService.error('Error please try again!');
       }
     });
   }
