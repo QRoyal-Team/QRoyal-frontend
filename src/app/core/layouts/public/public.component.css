@@ -106,3 +106,9 @@ nav {
   width: 23px;
   height: 23px;
 }
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+    color: var(--bs-navbar-active-color);
+        font-size: 20px;
+    font-style: italic;
+}

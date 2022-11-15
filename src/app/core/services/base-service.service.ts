@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
+import { Pagination } from '../models/pagination';
 
 @Injectable({
   providedIn: 'root',
@@ -13,15 +14,15 @@ export abstract class BaseService<T> {
   };
   constructor(@Inject(String) protected url: string, protected http: HttpClient) {}
 
-  getAll(): Observable<ApiResponse<T[]>> {
-    return this.mapAndCatchError(this.http.get<ApiResponse<T[]>>(this.apiEndPoint + this.url + 'gets', this.httpOptions));
+  public gets(pagination: any): Observable<ApiResponse<Pagination>> {
+    return this.makeRequest('get', this.url + '/gets', pagination);
   }
 
-  get(id: number): Observable<ApiResponse<T>> {
+  public get(id: number): Observable<ApiResponse<T>> {
     return this.mapAndCatchError(this.http.get<ApiResponse<T>>(`${this.apiEndPoint + this.url + 'get'}/${id}`, this.httpOptions));
   }
 
-  add(resource: T): Observable<ApiResponse<T>> {
+  public add(resource: T): Observable<ApiResponse<T>> {
     return this.mapAndCatchError(this.http.post<ApiResponse<T>>(this.apiEndPoint + this.url + 'create', resource, this.httpOptions));
   }
 
@@ -33,7 +34,9 @@ export abstract class BaseService<T> {
     } else {
       body = data;
     }
-    return this.mapAndCatchError<TData>(this.http.request<ApiResponse<TData>>(method.toUpperCase(), finalUrl, { body: body, headers: this.httpOptions.headers }));
+    return this.mapAndCatchError<TData>(
+      this.http.request<ApiResponse<TData>>(method.toUpperCase(), finalUrl, { body: body, headers: this.httpOptions.headers })
+    );
   }
 
   protected mapAndCatchError<TData>(response: Observable<ApiResponse<TData>>): Observable<ApiResponse<TData>> {
@@ -71,15 +74,15 @@ export class ApiResponse<T> {
   }
   data: T | undefined;
   errors: ApiError[];
-  error!:ApiError;
+  error!: ApiError;
   getErrorsText(): string {
     return this.errors.map((e) => e.text).join(' ');
   }
   hasErrors(): boolean {
     return this.errors.length > 0;
   }
-  hasError():boolean{
-    return this.error!=null;
+  hasError(): boolean {
+    return this.error != null;
   }
 }
 

@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">QRoyal</a>
+            <a class="navbar-brand" routerLink="/home">QRoyal</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -10,10 +10,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Trang chủ</a>
+                        <a class="nav-link" routerLink="/home" routerLinkActive="active">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sản phẩm</a>
+                        <a class="nav-link" routerLink="/products" routerLinkActive="active">Sản phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dịch vụ</a>
@@ -25,15 +25,16 @@
                         <a class="nav-link" href="#">Liên hệ</a>
                     </li>
                 </ul>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                <div class="nav-item dropdown my-cart">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
-                    </a>
+                    </a><span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Giỏ hàng</a></li>
                         <li><a class="dropdown-item" href="#">Hàng đã xem</a></li>
                     </ul>
+
                 </div>
                 <div *ngIf="user" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -42,8 +43,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
-                        <li *ngIf="user.role.includes('ROLE_STAFF')"><a class="dropdown-item"
-                                routerLink="/admin">Go to admin</a></li>
+                        <li *ngIf="user.role.includes('ROLE_STAFF')"><a class="dropdown-item" routerLink="/admin">Go to
+                                admin</a></li>
                     </ul>
                 </div>
                 <div *ngIf="!user" class="nav-item dropdown">

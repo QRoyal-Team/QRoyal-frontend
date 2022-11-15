@@ -8,7 +8,7 @@ import { AdminproductComponent } from './core/components/admin/admin-product/adm
 import { LoginComponent } from './core/auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PublicComponent } from './core/layouts/public/public.component';
-import { ProductComponent } from './core/components/public/product/product.component';
+import {ProductsComponent } from './core/components/public/products/products.component';
 import { OtpComponent } from './core/auth/otp/otp.component';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,9 +22,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     PublicComponent,
-    ProductComponent,
     OtpComponent,
     RegisterComponent,
+    ProductsComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
   providers: [HttpClientModule, HttpClient],
