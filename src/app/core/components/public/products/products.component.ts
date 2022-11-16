@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Pagination } from 'src/app/core/models/pagination';
 import { Product } from 'src/app/core/models/product';
 import { AlertService } from 'src/app/core/services/alert.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class ProductsComponent implements OnInit {
     private productService: ProductService,
     private alertService: AlertService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private cartService:CartService
   ) {}
 
   ngOnInit(): void {
@@ -85,5 +87,8 @@ export class ProductsComponent implements OnInit {
         this.alertService.error('Something error');
       }
     });
+  }
+  addToCart(product: Product) {
+    this.cartService.add(product,1);
   }
 }

@@ -1,0 +1,24 @@
+h6.mt-1 {
+  margin-left: 11px;
+}
+img {
+  padding: 2px;
+}
+.rate-part {
+  padding-right: 24px;
+}
+.head-products {
+  font-size: 2.5rem;
+  background-image: url(https://res.cloudinary.com/dv29oltwi/image/upload/v1668404063/images/product/product-27_prw75l.webp);
+  font-style: inherit;
+  color: rgb(255, 255, 255);
+  background-position: 5px;
+}
+img.d-block.w-100 {
+  height: 315px;
+}
+.product-quanity {
+  width: 32px;
+  margin-right: -8px;
+  border: none;
+}

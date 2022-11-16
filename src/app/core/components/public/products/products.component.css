@@ -8,7 +8,10 @@
 .item-products {
   padding: 10px;
 }
-
+a {
+    text-decoration: none;
+    color: black;
+}
 .thumb-wrapper {
   padding: 25px 15px;
   background: #fff;
@@ -49,28 +52,35 @@
 }
 h4 {
   cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
   -webkit-transition: all 2s ease;
   -moz-transition: all 2s ease;
   -ms-transition: all 2s ease;
   transition: all 2s ease;
 }
+
 i.fa-solid.fa-heart:hover {
-    color: rgb(130, 227, 130);
+  color: rgb(130, 227, 130);
 }
+
 h4:hover {
-  opacity: 70%;
-  transform: scale(1.2);
+  text-decoration: underline;
+  color: aqua;
 }
+
+.thumb-wrapper {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.thumb-wrapper:hover {
+  transform: scale(1.1);
+}
+
 .img-box {
   cursor: pointer;
-  -webkit-transition: all 2s ease;
-  -moz-transition: all 2s ease;
-  -ms-transition: all 2s ease;
-  transition: all 2s ease;
-}
-.img-box:hover {
-  opacity: 90%;
-  transform: scale(1.2);
 }
 
 .thumb-content .btn {

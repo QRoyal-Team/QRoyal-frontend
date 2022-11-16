@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-public',
@@ -9,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PublicComponent implements OnInit {
   user!:User;
-  constructor(private authService:AuthService) {}
+  constructor(private authService:AuthService,public cartService:CartService) {}
 
   ngOnInit(): void {
     this.user = this.authService.getUser();

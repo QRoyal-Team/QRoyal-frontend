@@ -81,8 +81,8 @@ nav {
   padding-bottom: 15px;
 }
 
-.headline{
-    padding: 15px;
+.headline {
+  padding: 15px;
 }
 
 .lentop {
@@ -107,8 +107,80 @@ nav {
   height: 23px;
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
-    color: var(--bs-navbar-active-color);
-        font-size: 20px;
-    font-style: italic;
+.lentop-cart {
+  display: none;
+  bottom: 20%;
+  right: 12px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1000;
+}
+
+.lentop-cart div {
+  background: rgb(80 199 187);
+  border: 2px solid #fff;
+  border-radius: 50px;
+  padding: 8px 12.5px;
+}
+
+.lentop-cart img {
+  width: 23px;
+  height: 23px;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link {
+  color: var(--bs-navbar-active-color);
+  font-size: 20px;
+  font-style: italic;
+}
+
+.nav-item.dropdown.my-cart:after {
+  position: absolute;
+  right: 98%;
+  top: 18%;
+  content: attr(data-count);
+  font-size: 84%;
+  padding: 0.6em;
+  border-radius: 999px;
+  line-height: 0.75em;
+  color: #010101;
+  text-align: center;
+  min-width: 2em;
+  font-weight: bold;
+  background: #dbdd45;
+  border-style: hidden;
+}
+a.dropdown-item.my-cart:after {
+  position: absolute;
+  right: 7%;
+  top: 15%;
+  content: attr(data-count);
+  font-size: 76%;
+  padding: 0.6em;
+  border-radius: 999px;
+  line-height: 0.75em;
+  color: #141619;
+  text-align: center;
+  min-width: 2em;
+  font-weight: bold;
+  background: #dbdd45;
+  border-style: hidden;
+}
+
+.lentop-cart:after {
+  position: absolute;
+  right: -21%;
+  top: -38%;
+  content: attr(data-count);
+  font-size: 100%;
+  padding: 11px;
+  border-radius: 999px;
+  line-height: 0.75em;
+  color: #141619;
+  text-align: center;
+  min-width: 1em;
+  font-weight: bold;
+  background: #dbdd45;
+  border-style: none;
 }

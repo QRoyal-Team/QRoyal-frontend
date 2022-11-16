@@ -19,7 +19,7 @@ export abstract class BaseService<T> {
   }
 
   public get(id: number): Observable<ApiResponse<T>> {
-    return this.mapAndCatchError(this.http.get<ApiResponse<T>>(`${this.apiEndPoint + this.url + 'get'}/${id}`, this.httpOptions));
+    return this.makeRequest('get', this.url + '/get', {id:id});
   }
 
   public add(resource: T): Observable<ApiResponse<T>> {

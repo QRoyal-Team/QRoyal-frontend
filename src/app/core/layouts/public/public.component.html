@@ -25,13 +25,13 @@
                         <a class="nav-link" href="#">Liên hệ</a>
                     </li>
                 </ul>
-                <div class="nav-item dropdown my-cart">
-                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                <div class="nav-item dropdown my-cart" attr.data-count={{cartService.count()}}>
+                    <a class="nav-link dropdown-toggle " id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
-                    </a><span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Giỏ hàng</a></li>
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item my-cart" routerLink="/cart" attr.data-count={{cartService.count()}}>Giỏ hàng</a></li>
                         <li><a class="dropdown-item" href="#">Hàng đã xem</a></li>
                     </ul>
 
@@ -109,5 +109,10 @@
     <div>
         <img
             src='https://1.bp.blogspot.com/-k6sikOdzFXQ/VwqCKDosmEI/AAAAAAAAKxE/nLxLhkTIO6o3iE5ZWmtxo2bf4QHdzPQNQ/s1600/top.png' />
+    </div>
+</div>
+<div class="lentop-cart" attr.data-count={{cartService.count()}}>
+    <div>
+        <a routerLink="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
 </div>

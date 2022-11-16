@@ -1,0 +1,19 @@
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
+  }
+}
+.quantity {
+  margin-right: 70px;
+}
+input#form1 {
+  width: 30px;
+  border: none;
+}
+.rounded.border.p-3 {
+  width: 70px;
+  height: 45px;
+}
+.d-flex.flex-row.pb-3 {
+  margin-right: 22px;
+}

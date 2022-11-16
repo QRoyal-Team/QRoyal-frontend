@@ -13,6 +13,8 @@ import { OtpComponent } from './core/auth/otp/otp.component';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProductdetailComponent } from './core/components/public/productdetail/productdetail.component';
+import { CartComponent } from './core/components/public/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     OtpComponent,
     RegisterComponent,
     ProductsComponent,
+    ProductdetailComponent,
+    CartComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
   providers: [HttpClientModule, HttpClient],

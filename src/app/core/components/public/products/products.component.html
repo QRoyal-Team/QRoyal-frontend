@@ -14,11 +14,12 @@
                     <div class="thumb-wrapper">
                         <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
                         <div class="img-box">
-                            <img src={{product.images[1]}} class="img-fluid" alt={{product.name}}>
+                            <a routerLink="/productdetail" [queryParams]="{id: product.id}">
+                            <img src={{product.images[1]}} class="img-fluid" alt={{product.name}}></a>
                         </div>
                         <div class="thumb-content">
-                            <h4>{{product.name}}</h4>
-                            <p class="item-price"><s>{{product.price}}đ</s> <span>{{product.price
+                            <h4><a routerLink="/productdetail" [queryParams]="{id: product.id}" >{{product.name}}</a></h4>
+                            <p class="item-price"><s *ngIf="product.discount!=0">{{product.price}}đ</s> <span>{{product.price
                                     -(product.price*product.discount/100)}}đ</span></p>
                             <div class="star-rating">
                                 <ul class="list-inline">
@@ -29,7 +30,7 @@
                                     <li class="list-inline-item"><i class="fa-regular fa-star"></i></li>
                                 </ul>
                             </div>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <a (click)="addToCart(product)" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -44,7 +45,8 @@
                         </a>
                     </li>
                     <li class="page-item" *ngFor="let page of [].constructor(pageable.totalPages), let i = index"
-                        [ngClass]="{active:pageable.number === i}"><a class="page-link" (click)="setPage(i)">{{i+1}}</a></li>
+                        [ngClass]="{active:pageable.number === i}"><a class="page-link" (click)="setPage(i)">{{i+1}}</a>
+                    </li>
                     <li class="page-item">
                         <a (click)="setPage(+pageable.totalPages-1)" class="page-link" aria-label="Next">
                             <span aria-hidden="true">»</span>
