@@ -5,6 +5,8 @@ import { OtpComponent } from './core/auth/otp/otp.component';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { AdminproductComponent } from './core/components/admin/admin-product/adminproduct.component';
 import { CartComponent } from './core/components/public/cart/cart.component';
+import { OrdernormalComponent } from './core/components/public/ordernormal/ordernormal.component';
+import { OrderstatusComponent } from './core/components/public/orderstatus/orderstatus.component';
 import { ProductdetailComponent } from './core/components/public/productdetail/productdetail.component';
 import { ProductsComponent } from './core/components/public/products/products.component';
 import { GuardGuard } from './core/config/interceptors/guard/guard.guard';
@@ -31,6 +33,8 @@ const routes: Routes = [
       { path: 'products', component: ProductsComponent },
       { path: 'productdetail', component: ProductdetailComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'orderstatus', component: OrderstatusComponent },
+       { path: 'ordernormal', component: OrdernormalComponent },
     ],
   },
   { path: 'login', component: LoginComponent },

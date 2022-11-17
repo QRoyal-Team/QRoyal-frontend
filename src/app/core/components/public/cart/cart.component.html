@@ -18,7 +18,6 @@
                                         <p class="mb-0">Bạn có {{cartService.getCart().length}} sản phẩm trong giỏ</p>
                                     </div>
                                 </div>
-
                                 <h3 *ngIf="cartService.getCart().length==0">Chưa có sản phẩm nào</h3>
 
                                 <div class="card mb-3" *ngFor="let item of cartService.getCart()">
@@ -26,9 +25,8 @@
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex flex-row align-items-center">
                                                 <div>
-                                                    <img src={{item.images[0]}}
-                                                        class="img-fluid rounded-3" alt="Shopping item"
-                                                        style="width: 65px;">
+                                                    <img src={{item.images[0]}} class="img-fluid rounded-3"
+                                                        alt="Shopping item" style="width: 65px;">
                                                 </div>
                                                 <div class="ms-3">
                                                     <h5>{{item.name}}</h5>
@@ -40,15 +38,16 @@
                                                     <div class="d-flex">
                                                         <button class="btn btn-link" (click)="updateQuantity(item,'-')">
                                                             <i class="fas fa-minus"></i>
-                                                            
+
                                                         </button>
 
-                                                        <input id="form1" min="0" name="quantity" value={{item.quantityItem}}
+                                                        <input id="form1" min="0" name="quantity"
+                                                            value={{item.quantityItem}}
                                                             class="form-control form-control-sm">
 
                                                         <button class="btn btn-link" (click)="updateQuantity(item,'+')">
                                                             <i class="fas fa-plus"></i>
-                                                           
+
                                                         </button>
                                                     </div>
                                                 </div>
@@ -63,7 +62,6 @@
                                 </div>
                             </div>
                             <div class="col-lg-5">
-
                                 <div class="card bg-secondary text-white rounded-3">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -71,17 +69,19 @@
                                             <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
                                                 class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
                                         </div>
-
-                                        <form class="mt-4">
+                                        <form class="mt-4" #form="ngForm" ngNativeValidate
+                                            (ngSubmit)="checkout(form.value)">
                                             <div class="form-outline form-white mb-4">
                                                 <input type="text" id="typeName" class="form-control form-control-lg"
-                                                    siez="17" placeholder="Name" required/>
+                                                    name="name" siez="17" placeholder="Name" required
+                                                    [(ngModel)]="order.name" />
                                                 <label class="form-label" for="typeName">Tên khách hàng*</label>
                                             </div>
 
                                             <div class="form-outline form-white mb-4">
                                                 <input type="text" class="form-control form-control-lg" siez="17"
-                                                    placeholder="0123 4567 89" minlength="11" maxlength="19" required/>
+                                                    name="phone" placeholder="0123 4567 89" minlength="11"
+                                                    maxlength="19" required [(ngModel)]="order.phone" />
                                                 <label class="form-label" for="typeText">Số điện thoại*</label>
                                             </div>
 
@@ -89,13 +89,15 @@
                                                 <div class="col-md-6">
                                                     <div class="form-outline form-white">
                                                         <input type="text" class="form-control form-control-lg"
-                                                            placeholder="Address" required/>
+                                                            name="address" placeholder="Address" required
+                                                            [(ngModel)]="order.address" />
                                                         <label class="form-label" for="typeExp">Địa chỉ*</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-outline form-white">
-                                                        <input type="text" class="form-control form-control-lg" />
+                                                        <input type="text" class="form-control form-control-lg"
+                                                            name="description" [(ngModel)]="order.description" />
                                                         <label class="form-label" for="typeText">Ghi chú</label>
                                                     </div>
                                                 </div>
@@ -104,7 +106,8 @@
                                                 <div class="d-flex flex-row pb-3">
                                                     <div class="d-flex align-items-center pe-2">
                                                         <input class="form-check-input" type="radio" name="radioPayment"
-                                                            id="radioPayment1v" value="COD" aria-label="..." checked="">
+                                                            id="radioPayment1v" value="COD" aria-label="..."
+                                                            (click)="clickPayOption(false)" [checked]="!isPayNow">
                                                     </div>
                                                     <div class="rounded border p-3 bg-light">
                                                         <p
@@ -118,46 +121,46 @@
                                                 <div class="d-flex flex-row pb-3">
                                                     <div class="d-flex align-items-center pe-2">
                                                         <input class="form-check-input" type="radio" name="radioPayment"
-                                                            id="radioPayment2v" value="OCB" aria-label="..."
-                                                            autocompleted="">
+                                                            id="radioPayment2v" value="NCB" aria-label="..."
+                                                            (click)="clickPayOption(true)" [checked]="isPayNow">
                                                     </div>
                                                     <div class="rounded border p-3 bg-light">
                                                         <p
                                                             class="d-flex align-items-center mb-0 justify-content-center">
                                                             <img style="width: 65px;height:20px"
-                                                                src="https://res.cloudinary.com/dv29oltwi/image/upload/v1668623953/Logo-Ngan_hang_Phuong_Dong_wsmj5g.png"
+                                                                src="https://res.cloudinary.com/dv29oltwi/image/upload/v1668677252/logo_ncb_e8io8g.jpg"
                                                                 alt="">
                                                         </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-
-                                        <hr class="my-4">
-
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-2">Tạm tính</p>
-                                            <p class="mb-2">{{getTotals(cartService.getCart())}}</p>
-                                        </div>
-
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-2">Vận chuyển</p>
-                                            <p class="mb-2">Free</p>
-                                        </div>
-
-                                        <div class="d-flex justify-content-between mb-4">
-                                            <p class="mb-2">Tổng</p>
-                                            <p class="mb-2">{{getTotals(cartService.getCart())}}</p>
-                                        </div>
-
-                                        <button type="button" class="btn btn-success btn-block btn-lg">
+                                            <hr class="my-4">
                                             <div class="d-flex justify-content-between">
-                                                <span>{{getTotals(cartService.getCart())}}</span>
-                                                <span style="padding-left:10px ;">Checkout <i
-                                                        class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                <p class="mb-2">Tạm tính</p>
+                                                <p class="mb-2">{{getTotals(cartService.getCart())}}</p>
                                             </div>
-                                        </button>
 
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-2">Vận chuyển</p>
+                                                <p class="mb-2">Free</p>
+                                            </div>
+
+                                            <div class="d-flex justify-content-between mb-4">
+                                                <p class="mb-2">Tổng</p>
+                                                <p class="mb-2">{{getTotals(cartService.getCart())}}</p>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success btn-block btn-lg"
+                                                [disabled]="cartService.getCart().length==0 || loading">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>{{getTotals(cartService.getCart())}}</span>
+                                                    <span style="padding-left:10px ;">Thanh toán <i
+                                                            class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                    <span *ngIf="loading"
+                                                        class="spinner-border spinner-border-sm mr-1"></span>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
 

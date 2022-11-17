@@ -1,12 +1,19 @@
-.ml-3{
-    margin-left: 3px;
+.ml-3 {
+  margin-left: 3px;
 }
-.pl-3{
-    padding-left: 3px;
+.pl-3 {
+  padding-left: 3px;
 }
-.mr-3{
-    margin-right: 3px;
+.mr-3 {
+  margin-right: 3px;
 }
-.pr-3{
-    padding-right: 3px;
+.pr-3 {
+  padding-right: 3px;
+}
+.head-products {
+  font-size: 2.5rem;
+  background-image: url('https://res.cloudinary.com/dv29oltwi/image/upload/v1668404063/images/product/product-27_prw75l.webp');
+  font-style: inherit;
+  color: rgb(255, 255, 255);
+  background-position: 5px;
 }

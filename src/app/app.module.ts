@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProductdetailComponent } from './core/components/public/productdetail/productdetail.component';
 import { CartComponent } from './core/components/public/cart/cart.component';
+import { OrderstatusComponent } from './core/components/public/orderstatus/orderstatus.component';
+import { OrdernormalComponent } from './core/components/public/ordernormal/ordernormal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CartComponent } from './core/components/public/cart/cart.component';
     ProductsComponent,
     ProductdetailComponent,
     CartComponent,
+    OrderstatusComponent,
+    OrdernormalComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
   providers: [HttpClientModule, HttpClient],
