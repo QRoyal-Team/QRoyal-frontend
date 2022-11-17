@@ -110,7 +110,7 @@ nav {
 .lentop-cart {
   display: none;
   bottom: 20%;
-  right: 12px;
+  right: 15px;
   cursor: pointer;
   position: fixed;
   z-index: 1000;

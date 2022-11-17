@@ -15,9 +15,11 @@
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div>
                                         <p class="mb-1">Giỏ hàng</p>
-                                        <p class="mb-0">Bạn có 4 sản phẩm trong giỏ</p>
+                                        <p class="mb-0">Bạn có {{cartService.getCart().length}} sản phẩm trong giỏ</p>
                                     </div>
                                 </div>
+
+                                <h3 *ngIf="cartService.getCart().length==0">Chưa có sản phẩm nào</h3>
 
                                 <div class="card mb-3" *ngFor="let item of cartService.getCart()">
                                     <div class="card-body">
@@ -36,20 +38,22 @@
                                             <div class="d-flex flex-row align-items-center">
                                                 <div style="width: 50px;" class="quantity">
                                                     <div class="d-flex">
-                                                        <button class="btn btn-link">
+                                                        <button class="btn btn-link" (click)="updateQuantity(item,'-')">
                                                             <i class="fas fa-minus"></i>
+                                                            
                                                         </button>
 
                                                         <input id="form1" min="0" name="quantity" value={{item.quantityItem}}
                                                             class="form-control form-control-sm">
 
-                                                        <button class="btn btn-link">
+                                                        <button class="btn btn-link" (click)="updateQuantity(item,'+')">
                                                             <i class="fas fa-plus"></i>
+                                                           
                                                         </button>
                                                     </div>
                                                 </div>
                                                 <div style="width: 80px;">
-                                                    <h5 class="mb-0">{{item.total}}</h5>
+                                                    <h5 class="mb-0">{{getTotal(item)}}</h5>
                                                 </div>
                                                 <a href="#!" style="color: #cecece;"><i
                                                         class="fas fa-trash-alt"></i></a>
@@ -133,7 +137,7 @@
 
                                         <div class="d-flex justify-content-between">
                                             <p class="mb-2">Tạm tính</p>
-                                            <p class="mb-2">$4798.00</p>
+                                            <p class="mb-2">{{getTotals(cartService.getCart())}}</p>
                                         </div>
 
                                         <div class="d-flex justify-content-between">
@@ -143,12 +147,12 @@
 
                                         <div class="d-flex justify-content-between mb-4">
                                             <p class="mb-2">Tổng</p>
-                                            <p class="mb-2">$4818.00</p>
+                                            <p class="mb-2">{{getTotals(cartService.getCart())}}</p>
                                         </div>
 
                                         <button type="button" class="btn btn-success btn-block btn-lg">
                                             <div class="d-flex justify-content-between">
-                                                <span>$4818.00</span>
+                                                <span>{{getTotals(cartService.getCart())}}</span>
                                                 <span style="padding-left:10px ;">Checkout <i
                                                         class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                             </div>

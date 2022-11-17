@@ -16,7 +16,7 @@ export class CartService {
     let exits = this.products.find((product) => product.id == cartItem.id);
     if (exits) {
       exits.quantityItem++;
-      this.alertService.success(cartItem.name + ' Số lượng +1');
+      this.alertService.success(cartItem.name + ' +1');
       this.save();
       return;
     }
@@ -53,6 +53,35 @@ export class CartService {
   }
 
   public getTotal() {}
+
+  public increase(cartItem: CartItem) {
+    this.products = this.getCart();
+    let exits = this.products.find((product) => product.id == cartItem.id);
+    if (exits) {
+      if(exits.quantity==exits.quantityItem){
+        this.alertService.warning("Too much !!");
+        return;
+      }
+      exits.quantityItem++;
+      this.alertService.success(cartItem.name + ' +1');
+      this.save();
+    }
+  }
+
+  public decrease(cartItem: CartItem) {
+    this.products = this.getCart();
+    let exits = this.products.find((product) => product.id == cartItem.id);
+    if (exits) {
+      exits.quantityItem--;
+      if(exits.quantityItem==0){
+        this.remove(cartItem.id);
+        this.alertService.error(cartItem.name + ' deteted form cart');
+        return;
+      }
+      this.alertService.info(cartItem.name + ' -1');
+      this.save();
+    }
+  }
 
   public clear() {
     localStorage.removeItem('cart');
